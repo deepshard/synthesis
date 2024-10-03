@@ -85,16 +85,7 @@ class Agent():
                         {"type": "tool_result", "tool_use_id": block["id"], "content": tool_output}
                     ]})
 
-        # Create a 'logs' directory if it doesn't exist
-        os.makedirs('logs', exist_ok=True)
+        return self.messages
 
-        # Generate a unique filename based on timestamp
-        timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
-        filename = f"logs/conversation_{timestamp}.jsonl"
-
-        # Append all messages to the JSONL file
-        with open(filename, 'a') as f:
-            for message in self.messages:
-                json.dump(message, f)
-                f.write('\n')
+        
                     
